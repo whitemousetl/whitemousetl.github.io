@@ -1,5 +1,18 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>WhiteMouseTL</title><link>https://whitemousetl.github.io/</link><description>知人者智，自知者明。胜人者有力，自胜者强。</description><copyright>WhiteMouseTL</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/67313669?v=4</url><title>avatar</title><link>https://whitemousetl.github.io/</link></image><lastBuildDate>Sun, 14 Apr 2024 20:39:57 +0000</lastBuildDate><managingEditor>WhiteMouseTL</managingEditor><ttl>60</ttl><webMaster>WhiteMouseTL</webMaster><item><title>MySQL-SQL性能分析</title><link>https://whitemousetl.github.io//post/MySQL-SQL-xing-neng-fen-xi.html</link><description>**1、SQL执行频率**&#13;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>WhiteMouseTL</title><link>https://whitemousetl.github.io/</link><description>知人者智，自知者明。胜人者有力，自胜者强。</description><copyright>WhiteMouseTL</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/67313669?v=4</url><title>avatar</title><link>https://whitemousetl.github.io/</link></image><lastBuildDate>Sun, 14 Apr 2024 20:51:37 +0000</lastBuildDate><managingEditor>WhiteMouseTL</managingEditor><ttl>60</ttl><webMaster>WhiteMouseTL</webMaster><item><title>MySQL-索引使用</title><link>https://whitemousetl.github.io//post/MySQL--suo-yin-shi-yong.html</link><description>**1、验证索引效率**&#13;
+```&#13;
+为建立索引之前，执行如下SQL语句，查看SQL耗时&#13;
+select distinct major from student111 where name = 'John Doe';&#13;
+针对字段创建索引&#13;
+create index idx_student111_name on student111(name);&#13;
+然后执行相同的SQL语句，再次查看SQL的耗时&#13;
+select distinct major from student111 where name = 'John Doe';&#13;
+```&#13;
+&#13;
+**2、索引的使用原则**&#13;
+```&#13;
+最左前缀法则&#13;
+如果索引了多列（联合索引），要遵守最左前缀法则。</description><guid isPermaLink="true">https://whitemousetl.github.io//post/MySQL--suo-yin-shi-yong.html</guid><pubDate>Sun, 14 Apr 2024 20:51:02 +0000</pubDate></item><item><title>MySQL-SQL性能分析</title><link>https://whitemousetl.github.io//post/MySQL-SQL-xing-neng-fen-xi.html</link><description>**1、SQL执行频率**&#13;
 ```&#13;
 MySQL客户端连接成功后，通过 show [session | global] status 命令可以提供服务器状态信息。</description><guid isPermaLink="true">https://whitemousetl.github.io//post/MySQL-SQL-xing-neng-fen-xi.html</guid><pubDate>Sun, 14 Apr 2024 20:39:24 +0000</pubDate></item><item><title>MySQL-索引(重中之重)</title><link>https://whitemousetl.github.io//post/MySQL--suo-yin-%28-zhong-zhong-zhi-zhong-%29.html</link><description>**1、索引概述**&#13;
 介绍：&#13;
