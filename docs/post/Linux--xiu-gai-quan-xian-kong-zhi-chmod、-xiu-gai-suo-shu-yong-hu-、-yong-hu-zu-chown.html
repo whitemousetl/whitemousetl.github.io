@@ -73,7 +73,17 @@ chmod u=rwx,g=rx,o=x hello.txt<br>
 chmod -R u=rwx，g=rx，o=x test</p>
 <p>u=rwx,g=rx,o=x 这部分可以用751代替<br>
 也就是chmod 751 hello.txt<br>
----是0，rwx是7，其他可推导出来</p></div>
+---是0，rwx是7，其他可推导出来</p>
+<p>使用chown命令，可以修改文件、文件夹的所属用户和用户组，此命令只能root用户使用<br>
+语法：<strong>chown [-R] [用户] [ : ] [用户组] 文件或文件夹</strong><br>
+选项[-R] ,同chmod，对文件夹内全部内容应用相同规则<br>
+选项用户 ，修改所属用户<br>
+选项用户组，修改所属用户组<br>
+选项[ : ]用于分隔用户和用户组<br>
+chown root hello.txt 将hello.txt所属用户修改为root<br>
+chown ：root hello.txt 将hello.txt 用户组修改为root<br>
+chown root：whitemousetl 将hello.txt用户改为root，用户组改为whitemousetl<br>
+chown -R root test</p></div>
 <div style="font-size:small;margin-top:8px;float:right;">❤️ 转载文章请注明出处，谢谢！❤️</div>
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
 <div class="comments" id="comments"></div>
