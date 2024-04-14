@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html data-color-mode="light" data-dark-theme="dark_colorblind" data-light-theme="light" lang="zh-CN">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="//cdn.staticfile.net/Primer/21.0.7/primer.css" rel="stylesheet" />
+    <link rel="icon" href="https://avatars.githubusercontent.com/u/67313669?v=4"><script>
+        let theme = localStorage.getItem("meek_theme") || "light";
+        document.documentElement.setAttribute("data-color-mode", theme);
+    </script>
+<meta name="description" content="MySQL-其他SQL语句的优化">
+<title>MySQL-其他SQL语句的优化</title>
+
+
+</head>
+<style>
+body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;padding: 45px;font-size: 16px;font-family: sans-serif;line-height: 1.25;}
+#header{display:flex;padding-bottom:8px;border-bottom: 1px solid var(--borderColor-muted, var(--color-border-muted));margin-bottom: 16px;}
+#footer {margin-top:64px; text-align: center;font-size: small;}
+
+</style>
+
+<style>
+.postTitle{margin: auto 0;font-size:40px;font-weight:bold;}
+.title-right{display:flex;margin:auto 0 0 auto;}
+.title-right .circle{padding: 14px 16px;margin-right:8px;}
+#postBody{border-bottom: 1px solid var(--color-border-default);padding-bottom:36px;}
+#postBody hr{height:2px;}
+#cmButton{height:48px;margin-top:48px;}
+#comments{margin-top:64px;}
+.g-emoji{font-size:24px;}
+@media (max-width: 600px) {
+    body {padding: 8px;}
+    .postTitle{font-size:24px;}
+}
+</style>
+
+
+
+
+<body>
+    <div id="header">
+<h1 class="postTitle">MySQL-其他SQL语句的优化</h1>
+<div class="title-right">
+    <a href="https://whitemousetl.github.io/" id="buttonHome" class="btn btn-invisible circle" title="首页">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathHome" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+    
+    <a href="https://github.com/whitemousetl/whitemousetl.github.io/issues/43" target="_blank" class="btn btn-invisible circle" title="Issue">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathIssue" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+    
+
+    <a class="btn btn-invisible circle" onclick="modeSwitch();" title="切换主题">
+        <svg class="octicon" width="16" height="16" >
+            <path id="themeSwitch" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+
+</div>
+</div>
+    <div id="content">
+<div class="markdown-body" id="postBody"><p><strong>1、插入数据优化</strong></p>
+<pre class="notranslate"><code class="notranslate">insert优化
+批量插入
+1 insert into 表名(字段列表) values(1,'Tom'),(2,'Cat'),(3,'Jerry')...;
+2 不建议批量插入超过1000条，可以开启手动提交事务
+start transaction
+insert into 表名(字段列表) values(1,'Tom'),(2,'Cat'),(3,'Jerry')...;
+insert into 表名(字段列表) values(4,'Tom'),(5,'Cat'),(6,'Jerry')...;
+insert into 表名(字段列表) values(7,'Tom'),(8,'Cat'),(9,'Jerry')...;
+...
+commit;主键顺序插入
+3 顺序插入的性能高于乱序插入
+</code></pre>
+<pre class="notranslate"><code class="notranslate">大批量插入数据
+不建议insert
+使用load指令
+如果一次性要插入大批量数据，使用insert语句插入性能较低，此时可以使用MySQL数据库提供的load指令进行插入。操作如下：
+1、客户端连接服务端时，加上参数 --local-infile
+mysql --local-infile -u root -p
+
+2、设置全局参数local-infile为1，开启从本地加载文件导入数据的开关
+set global local-infile=1;
+可以使用:select @@local_infile来查看local_infile是否开启
+
+3、执行load指令将准备好的数据，加载到表结构中
+load data local infile '/root/sql1.log' into table tb_user fields terminated by ',' lines terminated by '\n';
+注意：
+1、.sql格式的文件可以通过记事本创建，把后缀改成.sql。
+2、load 指令尽量输入所有字段，包括id，减少warnings
+3、需要添加序号可以在notepad++的 编辑-&gt;列块编辑 中插入数字来解决（初始值1，增量1，十进制）
+4、字符串不需要引号 '' 包围，去掉 ''
+5、巧用替换，使得.sql文件满足格式需求
+</code></pre>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/whitemousetl/whitemousetl.github.io/assets/67313669/754fe0d8-4b15-4148-ae9c-8699bd749c2c"><img src="https://github.com/whitemousetl/whitemousetl.github.io/assets/67313669/754fe0d8-4b15-4148-ae9c-8699bd749c2c" alt="image" style="max-width: 100%;"></a></p>
+<p><strong>2、主键优化</strong><br>
+数据组织方式<br>
+在InnoDB中存储引擎中，表数据都是根据主键顺序组织存放的，这种存储方式的表称为索引组织表（index organized table IOT）<br>
+<a target="_blank" rel="noopener noreferrer" href="https://github.com/whitemousetl/whitemousetl.github.io/assets/67313669/00214fad-c222-4e8e-95b7-f88855ae55fe"><img src="https://github.com/whitemousetl/whitemousetl.github.io/assets/67313669/00214fad-c222-4e8e-95b7-f88855ae55fe" alt="image" style="max-width: 100%;"></a><br>
+InnoDB表数据都是根据主键顺序组织存放的<br>
+<a target="_blank" rel="noopener noreferrer" href="https://github.com/whitemousetl/whitemousetl.github.io/assets/67313669/6eec6af2-adaf-4089-ab64-2ff152c56cd3"><img src="https://github.com/whitemousetl/whitemousetl.github.io/assets/67313669/6eec6af2-adaf-4089-ab64-2ff152c56cd3" alt="image" style="max-width: 100%;"></a><br>
+一页是16k</p>
+<p>页分裂<br>
+页可以为空，也可以填充一半，也可以填充100%。每个页包含了2-N行数据（如果一行数据太大，会行溢出），根据主键排列。<br>
+当乱序插入时，会可能发生页分裂现象<br>
+页合并<br>
+<a target="_blank" rel="noopener noreferrer" href="https://github.com/whitemousetl/whitemousetl.github.io/assets/67313669/80fc8622-def4-4bcd-b251-2067a6376224"><img src="https://github.com/whitemousetl/whitemousetl.github.io/assets/67313669/80fc8622-def4-4bcd-b251-2067a6376224" alt="image" style="max-width: 100%;"></a><br>
+当删除一行记录时，实际上记录并没有被物理删除，只是记录被标记（flaged）为删除并它的空间允许被其他记录声明使用。</p>
+<p>当页中删除的记录达到merge_threshold(默认为页的50%)，InnoDB会开始寻找最靠近的页（前或后）看看是否可以将两个页合并以优化空间使用。</p>
+<pre class="notranslate"><code class="notranslate">主键设计原则
+满足业务需求的情况下，尽量降低主键的长度
+插入数据时，尽量选择顺序插入，选择使用auto_increment自增主键
+尽量不要使用uuid做主键或者是其他自然主键，如身份证号
+业务操作时，尽量避免对主键的修改
+</code></pre>
+<p><strong>3、order by优化</strong></p>
+<pre class="notranslate"><code class="notranslate">1、using filesort
+通过表的索引或全表扫描，读取满足条件的数据行，然后在排序缓冲区sort buffer中完成排序操作，所有不是通过索引直接返回排序结果的排序都叫filesort排序
+2、using index 通过有序索引顺序扫描直接返回有序数据，这种情况即为using index ，不需要额外排序，操作效率高
+3、当创建索引的时候可以指定字段的排列顺序
+如：create index idx_user_age_phone_ad on user(age asc,phone desc)
+那样select id,age,phone from user order by age asc,phone desc;的查询效率是最高的。
+优化原则
+根据排序字段建立合适的索引，多字段排序时，页遵循最左前缀法则
+尽量使用覆盖索引
+多字段排序，一个升序一个降序，此时需要注意联合索引在创建时的规则（asc/desc)
+如果不可避免地出现filesort，大数据量排序时，可以适当增大排序缓冲区大小，sort_buffer_size(默认256k）
+</code></pre>
+<p><strong>4、group by优化</strong></p>
+<pre class="notranslate"><code class="notranslate">主要是联合索引和满足最左前缀法则
+在分组操作时，也可以通过索引来提高效率
+分组操作时，索引的使用也需要满足最左前缀法则
+</code></pre>
+<p><strong>5、limit优化</strong></p>
+<pre class="notranslate"><code class="notranslate">一个常见又头疼的问题就是limit 2000000，10 ，此时需要MySQL排序前2000010记录，仅仅返回2000000 - 2000010 的记录，其他记录丢弃，查询的代价非常大，效率也低
+一般分页查询时，通过创建覆盖索引能够比较好地提高性能，可以通过覆盖索引加子查询形式进行优化
+通过覆盖索引加子查询的方式对limit进行优化，这个例子是通过表的内连接来优化
+select * from student111 limit 9000000,10;
+耗时 4.40秒
+
+select id from student111 order by id limit 9000000,10;
+耗时2.79秒
+
+select * from student111 where id in (select id from student111 order by id limit 9000000,10);
+ERROR 1235 (42000): This version of MySQL doesn't yet support 'LIMIT &amp; IN/ALL/ANY/SOME subquery'
+
+select * from student111 s ,(select id from student111 order by id limit 9000000,10) a where s.id = a.id ;
+耗时2.77秒
+
+通过覆盖索引和子查询可以提高limit的查询效率
+</code></pre>
+<p><strong>6、count优化</strong></p>
+<pre class="notranslate"><code class="notranslate">MyISAM引擎把一个表的总行数存在了磁盘上，因此执行count(*)的时候会直接返回这个数，效率很高
+InnoDB引擎比较麻烦，它执行count(*)时，需要把数据一行一行地从引擎里面读出来，然后累计技术
+count()是一个聚合函数，对于返回的结果集，一行行地判断，如果count函数的参数不是null，累计值就加1，否则不加，最后返回累加值
+count(*)、count(主键)、count(字段)、count(1)
+
+性能
+count(*) 越等于count(1) &gt;count(主键) &gt; count(字段)
+推荐使用count(*)
+</code></pre>
+<p><strong>7、update优化</strong></p>
+<pre class="notranslate"><code class="notranslate">InnoDB的行锁是针对索引加的锁，不是针对记录加的锁，并且该索引不能失效，否则会从行级锁升级为表锁。
+表锁会影响性能。
+尽量根据主键/索引字段进行数据更新
+</code></pre></div>
+<div style="font-size:small;margin-top:8px;float:right;">❤️ 转载文章请注明出处，谢谢！❤️</div>
+<button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
+<div class="comments" id="comments"></div>
+</div>
+    <div id="footer">Copyright © <span id="year"></span><a href="https://whitemousetl.github.io/"> WhiteMouseTL </a>
+<p>
+<span id="runday"></span>Powered by <a href="https://meekdai.com/Gmeek.html" target="_blank">Gmeek</a>
+</p>
+
+<script>
+if("03/12/2024"!=""){
+    var now=new Date();
+    var startSite=new Date("03/12/2024");
+    var diff=now.getTime()-startSite.getTime();
+    var diffDay=Math.floor(diff/(1000*60*60*24));
+    document.getElementById("year").innerHTML=now.getFullYear();
+    if(""!=""){document.getElementById("runday").innerHTML=" • "+"网站运行"+diffDay+"天"+" • ";}
+    else{document.getElementById("runday").innerHTML="网站运行"+diffDay+"天"+" • ";}
+}
+</script>
+</div>
+</body>
+<script>
+var IconList={'sun': 'M8 10.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM8 12a4 4 0 100-8 4 4 0 000 8zM8 0a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V.75A.75.75 0 018 0zm0 13a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 018 13zM2.343 2.343a.75.75 0 011.061 0l1.06 1.061a.75.75 0 01-1.06 1.06l-1.06-1.06a.75.75 0 010-1.06zm9.193 9.193a.75.75 0 011.06 0l1.061 1.06a.75.75 0 01-1.06 1.061l-1.061-1.06a.75.75 0 010-1.061zM16 8a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0116 8zM3 8a.75.75 0 01-.75.75H.75a.75.75 0 010-1.5h1.5A.75.75 0 013 8zm10.657-5.657a.75.75 0 010 1.061l-1.061 1.06a.75.75 0 11-1.06-1.06l1.06-1.06a.75.75 0 011.06 0zm-9.193 9.193a.75.75 0 010 1.06l-1.06 1.061a.75.75 0 11-1.061-1.06l1.06-1.061a.75.75 0 011.061 0z', 'moon': 'M9.598 1.591a.75.75 0 01.785-.175 7 7 0 11-8.967 8.967.75.75 0 01.961-.96 5.5 5.5 0 007.046-7.046.75.75 0 01.175-.786zm1.616 1.945a7 7 0 01-7.678 7.678 5.5 5.5 0 107.678-7.678z', 'sync': 'M1.705 8.005a.75.75 0 0 1 .834.656 5.5 5.5 0 0 0 9.592 2.97l-1.204-1.204a.25.25 0 0 1 .177-.427h3.646a.25.25 0 0 1 .25.25v3.646a.25.25 0 0 1-.427.177l-1.38-1.38A7.002 7.002 0 0 1 1.05 8.84a.75.75 0 0 1 .656-.834ZM8 2.5a5.487 5.487 0 0 0-4.131 1.869l1.204 1.204A.25.25 0 0 1 4.896 6H1.25A.25.25 0 0 1 1 5.75V2.104a.25.25 0 0 1 .427-.177l1.38 1.38A7.002 7.002 0 0 1 14.95 7.16a.75.75 0 0 1-1.49.178A5.5 5.5 0 0 0 8 2.5Z', 'home': 'M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z', 'github': 'M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z'};
+var utterancesLoad=0;
+
+let themeSettings={
+    "dark": ["dark","moon","#00f0ff","dark-blue"],
+    "light": ["light","sun","#ff5000","github-light"],
+    "auto": ["auto","sync","","preferred-color-scheme"]
+};
+function changeTheme(mode, icon, color, utheme){
+    document.documentElement.setAttribute("data-color-mode",mode);
+    document.getElementById("themeSwitch").setAttribute("d",value=IconList[icon]);
+    document.getElementById("themeSwitch").parentNode.style.color=color;
+    if(utterancesLoad==1){utterancesTheme(utheme);}
+}
+function modeSwitch(){
+    let currentMode=document.documentElement.getAttribute('data-color-mode');
+    let newMode = currentMode === "light" ? "dark" : currentMode === "dark" ? "auto" : "light";
+    localStorage.setItem("meek_theme", newMode);
+    if(themeSettings[newMode]){
+        changeTheme(...themeSettings[newMode]);
+    }
+}
+function utterancesTheme(theme){
+    const message={type:'set-theme',theme: theme};
+    const iframe=document.getElementsByClassName('utterances-frame')[0];
+    iframe.contentWindow.postMessage(message,'https://utteranc.es');
+}
+if(themeSettings[theme]){changeTheme(...themeSettings[theme]);}
+console.log("\n %c Gmeek last https://github.com/Meekdai/Gmeek \n\n","padding:5px 0;background:#02d81d;color:#fff");
+</script>
+
+<script>
+document.getElementById("pathHome").setAttribute("d",IconList["home"]);
+document.getElementById("pathIssue").setAttribute("d",IconList["github"]);
+
+function openComments(){
+    cm=document.getElementById("comments");
+    cmButton=document.getElementById("cmButton");
+    cmButton.innerHTML="loading";
+    span=document.createElement("span");
+    span.setAttribute("class","AnimatedEllipsis");
+    cmButton.appendChild(span);
+
+    script=document.createElement("script");
+    script.setAttribute("src","https://utteranc.es/client.js");
+    script.setAttribute("repo","whitemousetl/whitemousetl.github.io");
+    script.setAttribute("issue-term","title");
+    
+    if(localStorage.getItem("meek_theme")=="dark"){script.setAttribute("theme","dark-blue");}
+    else if(localStorage.getItem("meek_theme")=="light") {script.setAttribute("theme","github-light");}
+    else{script.setAttribute("theme","preferred-color-scheme");}
+    
+    script.setAttribute("crossorigin","anonymous");
+    script.setAttribute("async","");
+    cm.appendChild(script);
+
+    int=self.setInterval("iFrameLoading()",200);
+}
+
+function iFrameLoading(){
+    var utterances=document.getElementsByClassName('utterances');
+    if(utterances.length==1){
+        if(utterances[0].style.height!=""){
+            utterancesLoad=1;
+            int=window.clearInterval(int);
+            document.getElementById("cmButton").style.display="none";
+            console.log("utterances Load OK");
+        }
+    }
+}
+</script>
+
+
+
+</html>

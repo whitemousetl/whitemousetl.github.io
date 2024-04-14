@@ -1,5 +1,23 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>WhiteMouseTL</title><link>https://whitemousetl.github.io/</link><description>知人者智，自知者明。胜人者有力，自胜者强。</description><copyright>WhiteMouseTL</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/67313669?v=4</url><title>avatar</title><link>https://whitemousetl.github.io/</link></image><lastBuildDate>Sun, 14 Apr 2024 20:51:37 +0000</lastBuildDate><managingEditor>WhiteMouseTL</managingEditor><ttl>60</ttl><webMaster>WhiteMouseTL</webMaster><item><title>MySQL-索引使用</title><link>https://whitemousetl.github.io//post/MySQL--suo-yin-shi-yong.html</link><description>**1、验证索引效率**&#13;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>WhiteMouseTL</title><link>https://whitemousetl.github.io/</link><description>知人者智，自知者明。胜人者有力，自胜者强。</description><copyright>WhiteMouseTL</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/67313669?v=4</url><title>avatar</title><link>https://whitemousetl.github.io/</link></image><lastBuildDate>Sun, 14 Apr 2024 21:01:01 +0000</lastBuildDate><managingEditor>WhiteMouseTL</managingEditor><ttl>60</ttl><webMaster>WhiteMouseTL</webMaster><item><title>MySQL-其他SQL语句的优化</title><link>https://whitemousetl.github.io//post/MySQL--qi-ta-SQL-yu-ju-de-you-hua.html</link><description>**1、插入数据优化**&#13;
+```&#13;
+insert优化&#13;
+批量插入&#13;
+1 insert into 表名(字段列表) values(1,'Tom'),(2,'Cat'),(3,'Jerry')...;&#13;
+2 不建议批量插入超过1000条，可以开启手动提交事务&#13;
+start transaction&#13;
+insert into 表名(字段列表) values(1,'Tom'),(2,'Cat'),(3,'Jerry')...;&#13;
+insert into 表名(字段列表) values(4,'Tom'),(5,'Cat'),(6,'Jerry')...;&#13;
+insert into 表名(字段列表) values(7,'Tom'),(8,'Cat'),(9,'Jerry')...;&#13;
+...&#13;
+commit;主键顺序插入&#13;
+3 顺序插入的性能高于乱序插入&#13;
+```&#13;
+```&#13;
+大批量插入数据&#13;
+不建议insert&#13;
+使用load指令&#13;
+如果一次性要插入大批量数据，使用insert语句插入性能较低，此时可以使用MySQL数据库提供的load指令进行插入。</description><guid isPermaLink="true">https://whitemousetl.github.io//post/MySQL--qi-ta-SQL-yu-ju-de-you-hua.html</guid><pubDate>Sun, 14 Apr 2024 21:00:30 +0000</pubDate></item><item><title>MySQL-索引使用</title><link>https://whitemousetl.github.io//post/MySQL--suo-yin-shi-yong.html</link><description>**1、验证索引效率**&#13;
 ```&#13;
 为建立索引之前，执行如下SQL语句，查看SQL耗时&#13;
 select distinct major from student111 where name = 'John Doe';&#13;
