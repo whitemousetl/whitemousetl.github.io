@@ -1,5 +1,27 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>WhiteMouseTL</title><link>https://whitemousetl.github.io/</link><description>知人者智，自知者明。胜人者有力，自胜者强。</description><copyright>WhiteMouseTL</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/67313669?v=4</url><title>avatar</title><link>https://whitemousetl.github.io/</link></image><lastBuildDate>Sun, 14 Apr 2024 16:22:51 +0000</lastBuildDate><managingEditor>WhiteMouseTL</managingEditor><ttl>60</ttl><webMaster>WhiteMouseTL</webMaster><item><title>Linux-vi/vim编辑器</title><link>https://whitemousetl.github.io//post/Linux-vi-vim-bian-ji-qi.html</link><description>**vi/vim是visual interface 的简称，是Linux中最经典的文本编辑器**&#13;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>WhiteMouseTL</title><link>https://whitemousetl.github.io/</link><description>知人者智，自知者明。胜人者有力，自胜者强。</description><copyright>WhiteMouseTL</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/67313669?v=4</url><title>avatar</title><link>https://whitemousetl.github.io/</link></image><lastBuildDate>Sun, 14 Apr 2024 16:25:59 +0000</lastBuildDate><managingEditor>WhiteMouseTL</managingEditor><ttl>60</ttl><webMaster>WhiteMouseTL</webMaster><item><title>Linux-用户权限（su与sudo）</title><link>https://whitemousetl.github.io//post/Linux--yong-hu-quan-xian-%EF%BC%88su-yu-sudo%EF%BC%89.html</link><description>在Linux系统中，拥有最大权限的账户名是root（超级管理员）&#13;
+&#13;
+root用户拥有最大的系统操作权限，而普通用户在很多地方的权限是受限的&#13;
+普通用户在Home目录内是不受限的，出了Home目录，用户仅有只读和执行权限，无修改权限&#13;
+&#13;
+通过su命令切换账户，来自英文switch user&#13;
+&#13;
+**语法：su [-] 用户名**&#13;
+[-] 可选，表示是否在切换用户后加载环境变量，建议带上&#13;
+参数用户名，表示要切换的用户，用户名也可以省略，省略表示切换到root&#13;
+切换用户后，通过exit命令退回上一个用户，也可以使用快捷键Ctor + D&#13;
+&#13;
+不建议长期使用root用户，避免带来系统损坏&#13;
+&#13;
+可以使用sudo命令，为普通用户的命令授权，临时以root 身份执行&#13;
+**语法：sudo 其他命令**&#13;
+在其他命令之前，带上sudo，即可为这一条命令临时赋予root权限&#13;
+但并不是所有用户都有权利使用sudo，需要为普通用户配置sudo认证&#13;
+&#13;
+**为普通用户配置sudo认证**&#13;
+切换到root用户，执行visudo，会自动通过vi编辑器打开/etc/sudoers&#13;
+在文件最后添加：用户名 ALL=（ALL）  NOPASSWORD：ALL&#13;
+最后通过wq保存退出 。</description><guid isPermaLink="true">https://whitemousetl.github.io//post/Linux--yong-hu-quan-xian-%EF%BC%88su-yu-sudo%EF%BC%89.html</guid><pubDate>Sun, 14 Apr 2024 16:25:33 +0000</pubDate></item><item><title>Linux-vi/vim编辑器</title><link>https://whitemousetl.github.io//post/Linux-vi-vim-bian-ji-qi.html</link><description>**vi/vim是visual interface 的简称，是Linux中最经典的文本编辑器**&#13;
 vim是vi的加强版本，兼容vi所有指令，不经能编辑文本，而且还具有shell程序编辑的功能，有不同颜色的字体来辨别语法的正确性，极大方便了程序的设计和编辑性&#13;
 &#13;
 vi/vim的三种模式&#13;
