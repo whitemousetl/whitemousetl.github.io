@@ -1,5 +1,18 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>WhiteMouseTL</title><link>https://whitemousetl.github.io/</link><description>知人者智，自知者明。胜人者有力，自胜者强。</description><copyright>WhiteMouseTL</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/67313669?v=4</url><title>avatar</title><link>https://whitemousetl.github.io/</link></image><lastBuildDate>Sun, 14 Apr 2024 16:42:55 +0000</lastBuildDate><managingEditor>WhiteMouseTL</managingEditor><ttl>60</ttl><webMaster>WhiteMouseTL</webMaster><item><title>Linux-网络传输（下载和网络请求、端口）ping、wget、curl</title><link>https://whitemousetl.github.io//post/Linux--wang-luo-chuan-shu-%EF%BC%88-xia-zai-he-wang-luo-qing-qiu-%E3%80%81-duan-kou-%EF%BC%89ping%E3%80%81wget%E3%80%81curl.html</link><description>通过ping命令，检查指定的网络服务器是否可以联通状态&#13;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>WhiteMouseTL</title><link>https://whitemousetl.github.io/</link><description>知人者智，自知者明。胜人者有力，自胜者强。</description><copyright>WhiteMouseTL</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/67313669?v=4</url><title>avatar</title><link>https://whitemousetl.github.io/</link></image><lastBuildDate>Sun, 14 Apr 2024 16:44:08 +0000</lastBuildDate><managingEditor>WhiteMouseTL</managingEditor><ttl>60</ttl><webMaster>WhiteMouseTL</webMaster><item><title>Linux-进程管理ps -ef</title><link>https://whitemousetl.github.io//post/Linux--jin-cheng-guan-li-ps%20-ef.html</link><description>程序运行在操作系统中，是被操作系统所管理的&#13;
+为管理运行的程序，每一个程序在运行的时候，便被操作系统注册为系统中的一个进程，并为每一个进程都分配一个独有的：进程ID（进程号）&#13;
+&#13;
+可以通过ps命令查看Linux系统中的进程信息&#13;
+语法：**ps [-e -f]**&#13;
+选项[-e] 显示出所有的进程信息&#13;
+选项[-f] 以完全格式化的的形式展示信息（展示全部信息）&#13;
+一般来说，固定用法就是 ps -ef 列出全部进程的全部信息&#13;
+&#13;
+![image](https://github.com/whitemousetl/whitemousetl.github.io/assets/67313669/03344219-c258-4e47-a396-51b0499ad632)&#13;
+&#13;
+关闭进程，可以使用kill命令&#13;
+语法：kill [-9] 进程ID&#13;
+选项[-9] 表示强制关闭进程。</description><guid isPermaLink="true">https://whitemousetl.github.io//post/Linux--jin-cheng-guan-li-ps%20-ef.html</guid><pubDate>Sun, 14 Apr 2024 16:43:36 +0000</pubDate></item><item><title>Linux-网络传输（下载和网络请求、端口）ping、wget、curl</title><link>https://whitemousetl.github.io//post/Linux--wang-luo-chuan-shu-%EF%BC%88-xia-zai-he-wang-luo-qing-qiu-%E3%80%81-duan-kou-%EF%BC%89ping%E3%80%81wget%E3%80%81curl.html</link><description>通过ping命令，检查指定的网络服务器是否可以联通状态&#13;
 语法：**ping [-c num] ip或主机名**&#13;
 选项[-c num] 检查次数，不使用[-c num] 选项，将无限次数持续检查&#13;
 参数ip或主机名，被检查的服务器的ip地址或主机名地址&#13;
