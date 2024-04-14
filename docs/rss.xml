@@ -1,5 +1,24 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>WhiteMouseTL</title><link>https://whitemousetl.github.io/</link><description>知人者智，自知者明。胜人者有力，自胜者强。</description><copyright>WhiteMouseTL</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/67313669?v=4</url><title>avatar</title><link>https://whitemousetl.github.io/</link></image><lastBuildDate>Sun, 14 Apr 2024 16:36:25 +0000</lastBuildDate><managingEditor>WhiteMouseTL</managingEditor><ttl>60</ttl><webMaster>WhiteMouseTL</webMaster><item><title>Linux-软链接ln，相当于windows系统的快捷方式</title><link>https://whitemousetl.github.io//post/Linux--ruan-lian-jie-ln%EF%BC%8C-xiang-dang-yu-windows-xi-tong-de-kuai-jie-fang-shi.html</link><description>语法：**ln -s 参数1 参数2**&#13;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>WhiteMouseTL</title><link>https://whitemousetl.github.io/</link><description>知人者智，自知者明。胜人者有力，自胜者强。</description><copyright>WhiteMouseTL</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/67313669?v=4</url><title>avatar</title><link>https://whitemousetl.github.io/</link></image><lastBuildDate>Sun, 14 Apr 2024 16:38:23 +0000</lastBuildDate><managingEditor>WhiteMouseTL</managingEditor><ttl>60</ttl><webMaster>WhiteMouseTL</webMaster><item><title>Linux-date命令以及校准时间ntp</title><link>https://whitemousetl.github.io//post/Linux-date-ming-ling-yi-ji-xiao-zhun-shi-jian-ntp.html</link><description>通过date命令可以在命令行中查看系统的时间&#13;
+语法：**date [-d] [+格式化字符串]**&#13;
+[-d] 按照给定的字符串显示日期，一般用于日期计算&#13;
+格式化字符串：通过特定的字符串标记，来控制显示时间的格式&#13;
+date默认不带参数是输出当前时间&#13;
+[-d] 选项，可以按照给定的字符串显示日期，一般用于日期计算&#13;
+date -d "+1 day"  +"%Y-%m-%d"&#13;
+&#13;
+`%Y 年&#13;
+%y 年份后两位数组（00~99）&#13;
+%m月份（01~12）&#13;
+%d日（01~31）&#13;
+%H小时（00~23）&#13;
+%M分钟（00~59）&#13;
+%S秒（00~60）`&#13;
+%s自1970-01-01 00：00：00 UTC到现在的秒数&#13;
+&#13;
+Lunux系统默认时区并非东8区&#13;
+&#13;
+UTC 代表协调世界时。</description><guid isPermaLink="true">https://whitemousetl.github.io//post/Linux-date-ming-ling-yi-ji-xiao-zhun-shi-jian-ntp.html</guid><pubDate>Sun, 14 Apr 2024 16:37:59 +0000</pubDate></item><item><title>Linux-软链接ln，相当于windows系统的快捷方式</title><link>https://whitemousetl.github.io//post/Linux--ruan-lian-jie-ln%EF%BC%8C-xiang-dang-yu-windows-xi-tong-de-kuai-jie-fang-shi.html</link><description>语法：**ln -s 参数1 参数2**&#13;
 -s选项，创建软连接&#13;
 参数1 ，被链接的文件或文件夹&#13;
 参数2，要链接去的目的地&#13;
