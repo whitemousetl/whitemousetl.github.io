@@ -1,5 +1,14 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>WhiteMouseTL</title><link>https://whitemousetl.github.io/</link><description>知人者智，自知者明。胜人者有力，自胜者强。</description><copyright>WhiteMouseTL</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/67313669?v=4</url><title>avatar</title><link>https://whitemousetl.github.io/</link></image><lastBuildDate>Sun, 14 Apr 2024 16:31:56 +0000</lastBuildDate><managingEditor>WhiteMouseTL</managingEditor><ttl>60</ttl><webMaster>WhiteMouseTL</webMaster><item><title>Linux-查看权限控制</title><link>https://whitemousetl.github.io//post/Linux--cha-kan-quan-xian-kong-zhi.html</link><description>通过命令ls -l可以以列表形式查看内容，并显示权限细节&#13;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>WhiteMouseTL</title><link>https://whitemousetl.github.io/</link><description>知人者智，自知者明。胜人者有力，自胜者强。</description><copyright>WhiteMouseTL</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/67313669?v=4</url><title>avatar</title><link>https://whitemousetl.github.io/</link></image><lastBuildDate>Sun, 14 Apr 2024 16:32:46 +0000</lastBuildDate><managingEditor>WhiteMouseTL</managingEditor><ttl>60</ttl><webMaster>WhiteMouseTL</webMaster><item><title>Linux-修改权限控制chmod、修改所属用户、用户组chown</title><link>https://whitemousetl.github.io//post/Linux--xiu-gai-quan-xian-kong-zhi-chmod%E3%80%81-xiu-gai-suo-shu-yong-hu-%E3%80%81-yong-hu-zu-chown.html</link><description>可以使用chmod命令，修改文件、文件夹的权限信息&#13;
+注意：只有文件、文件夹的所属用户或root用户可以修改&#13;
+语法：**chmod [-R] 权限 文件或文件夹**&#13;
+选项 [-R] ，对文件夹内的全部内容应用同样的操作&#13;
+chmod u=rwx,g=rx,o=x hello.txt &#13;
+chmod -R u=rwx，g=rx，o=x test&#13;
+&#13;
+u=rwx,g=rx,o=x 这部分可以用751代替&#13;
+也就是chmod 751 hello.txt&#13;
+---是0，rwx是7，其他可推导出来。</description><guid isPermaLink="true">https://whitemousetl.github.io//post/Linux--xiu-gai-quan-xian-kong-zhi-chmod%E3%80%81-xiu-gai-suo-shu-yong-hu-%E3%80%81-yong-hu-zu-chown.html</guid><pubDate>Sun, 14 Apr 2024 16:32:23 +0000</pubDate></item><item><title>Linux-查看权限控制</title><link>https://whitemousetl.github.io//post/Linux--cha-kan-quan-xian-kong-zhi.html</link><description>通过命令ls -l可以以列表形式查看内容，并显示权限细节&#13;
 drwxr-xr-x. 2 whitemousetl whitemousetl  6 3月  10 08:08 Desktop&#13;
 drwxr-xr-x 表示文件或文件夹的权限控制信息&#13;
 第一个whitemousetl 表示文件、文件夹所属用户&#13;
