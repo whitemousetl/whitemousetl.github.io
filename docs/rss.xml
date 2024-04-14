@@ -1,5 +1,17 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>WhiteMouseTL</title><link>https://whitemousetl.github.io/</link><description>知人者智，自知者明。胜人者有力，自胜者强。</description><copyright>WhiteMouseTL</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/67313669?v=4</url><title>avatar</title><link>https://whitemousetl.github.io/</link></image><lastBuildDate>Sun, 14 Apr 2024 16:34:56 +0000</lastBuildDate><managingEditor>WhiteMouseTL</managingEditor><ttl>60</ttl><webMaster>WhiteMouseTL</webMaster><item><title>Linux-下载命令</title><link>https://whitemousetl.github.io//post/Linux--xia-zai-ming-ling.html</link><description>centOS系统使用yum命令&#13;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>WhiteMouseTL</title><link>https://whitemousetl.github.io/</link><description>知人者智，自知者明。胜人者有力，自胜者强。</description><copyright>WhiteMouseTL</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/67313669?v=4</url><title>avatar</title><link>https://whitemousetl.github.io/</link></image><lastBuildDate>Sun, 14 Apr 2024 16:35:40 +0000</lastBuildDate><managingEditor>WhiteMouseTL</managingEditor><ttl>60</ttl><webMaster>WhiteMouseTL</webMaster><item><title>Linux-systemct命令控制软件的启动、停止和自动开启</title><link>https://whitemousetl.github.io//post/Linux-systemct-ming-ling-kong-zhi-ruan-jian-de-qi-dong-%E3%80%81-ting-zhi-he-zi-dong-kai-qi.html</link><description>能够被systemctl管理的软件一般成为服务&#13;
+语法：**systemctl start | stop | enable | disable | status服务名**&#13;
+启动、停止、开机自启，开机不自启、查看服务状态&#13;
+需要root权限&#13;
+系统内置的服务比较多，比如：&#13;
+NetworkManager，主网络服务&#13;
+network，副网络服务&#13;
+firewalld，防火墙服务&#13;
+sshd，ssh服务（FinalShell远程登录Linux就是使用这个服务）&#13;
+&#13;
+apache服务软件是：httpd&#13;
+&#13;
+部分软件安装后没有自动集成到systemctl中，我们可以手动添加。</description><guid isPermaLink="true">https://whitemousetl.github.io//post/Linux-systemct-ming-ling-kong-zhi-ruan-jian-de-qi-dong-%E3%80%81-ting-zhi-he-zi-dong-kai-qi.html</guid><pubDate>Sun, 14 Apr 2024 16:35:18 +0000</pubDate></item><item><title>Linux-下载命令</title><link>https://whitemousetl.github.io//post/Linux--xia-zai-ming-ling.html</link><description>centOS系统使用yum命令&#13;
 语法：**yum [-y] [install remove search] 软件名称**&#13;
 选项[-y] 自动确认，无需手动确认安装或卸载过程&#13;
 install：安装&#13;
