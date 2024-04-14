@@ -1,5 +1,13 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>WhiteMouseTL</title><link>https://whitemousetl.github.io/</link><description>知人者智，自知者明。胜人者有力，自胜者强。</description><copyright>WhiteMouseTL</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/67313669?v=4</url><title>avatar</title><link>https://whitemousetl.github.io/</link></image><lastBuildDate>Sun, 14 Apr 2024 11:46:47 +0000</lastBuildDate><managingEditor>WhiteMouseTL</managingEditor><ttl>60</ttl><webMaster>WhiteMouseTL</webMaster><item><title>Linux-绝对路径、相对路径、特殊路径符</title><link>https://whitemousetl.github.io//post/Linux--jue-dui-lu-jing-%E3%80%81-xiang-dui-lu-jing-%E3%80%81-te-shu-lu-jing-fu.html</link><description>绝对路径：以根目录为起点，描述路径的一种写法，路径描述以/开头&#13;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>WhiteMouseTL</title><link>https://whitemousetl.github.io/</link><description>知人者智，自知者明。胜人者有力，自胜者强。</description><copyright>WhiteMouseTL</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/67313669?v=4</url><title>avatar</title><link>https://whitemousetl.github.io/</link></image><lastBuildDate>Sun, 14 Apr 2024 11:56:41 +0000</lastBuildDate><managingEditor>WhiteMouseTL</managingEditor><ttl>60</ttl><webMaster>WhiteMouseTL</webMaster><item><title>Linux-mkdir创建新目录（文件夹）</title><link>https://whitemousetl.github.io//post/Linux-mkdir-chuang-jian-xin-mu-lu-%EF%BC%88-wen-jian-jia-%EF%BC%89.html</link><description>mkdir [-p] Linux路径&#13;
+mkdir来自make directory 创建目录，用来**创建新目录**&#13;
+注意:创建新文件夹需要修改权限，如果还不会修改权限，那么可以在Home目录下操作，因为涉及到权限问题，Home目录外无法成功创建新目录&#13;
+&#13;
+- mkdir 命令本身，必填&#13;
+- [-p] 可选项 ，非必填，表示自动创建不存在的父目录，适用于创建连续多层的目录&#13;
+- Linux路径 参数，必填，创建目录必须要指定目录路径&#13;
+![mkdir](https://github.com/whitemousetl/whitemousetl.github.io/assets/67313669/4f666872-9eae-4662-9423-7e503ff475aa)&#13;
+。</description><guid isPermaLink="true">https://whitemousetl.github.io//post/Linux-mkdir-chuang-jian-xin-mu-lu-%EF%BC%88-wen-jian-jia-%EF%BC%89.html</guid><pubDate>Sun, 14 Apr 2024 11:56:18 +0000</pubDate></item><item><title>Linux-绝对路径、相对路径、特殊路径符</title><link>https://whitemousetl.github.io//post/Linux--jue-dui-lu-jing-%E3%80%81-xiang-dui-lu-jing-%E3%80%81-te-shu-lu-jing-fu.html</link><description>绝对路径：以根目录为起点，描述路径的一种写法，路径描述以/开头&#13;
 相对路径：以当前目录为起点，描述路径的一种写法，路径描述无需以/开头&#13;
 ![绝对相对路径](https://github.com/whitemousetl/whitemousetl.github.io/assets/67313669/ac4c40e6-3c22-42ab-a5e7-b5078576cd63)&#13;
 特殊路径符号&#13;
