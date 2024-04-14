@@ -1,5 +1,24 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>WhiteMouseTL</title><link>https://whitemousetl.github.io/</link><description>知人者智，自知者明。胜人者有力，自胜者强。</description><copyright>WhiteMouseTL</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/67313669?v=4</url><title>avatar</title><link>https://whitemousetl.github.io/</link></image><lastBuildDate>Sun, 14 Apr 2024 16:30:39 +0000</lastBuildDate><managingEditor>WhiteMouseTL</managingEditor><ttl>60</ttl><webMaster>WhiteMouseTL</webMaster><item><title>Linux-用户、用户组、getent</title><link>https://whitemousetl.github.io//post/Linux--yong-hu-%E3%80%81-yong-hu-zu-%E3%80%81getent.html</link><description>Linux可以配置多个用户、配置多个用户组、用户可以加入多个用户组中&#13;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>WhiteMouseTL</title><link>https://whitemousetl.github.io/</link><description>知人者智，自知者明。胜人者有力，自胜者强。</description><copyright>WhiteMouseTL</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/67313669?v=4</url><title>avatar</title><link>https://whitemousetl.github.io/</link></image><lastBuildDate>Sun, 14 Apr 2024 16:31:56 +0000</lastBuildDate><managingEditor>WhiteMouseTL</managingEditor><ttl>60</ttl><webMaster>WhiteMouseTL</webMaster><item><title>Linux-查看权限控制</title><link>https://whitemousetl.github.io//post/Linux--cha-kan-quan-xian-kong-zhi.html</link><description>通过命令ls -l可以以列表形式查看内容，并显示权限细节&#13;
+drwxr-xr-x. 2 whitemousetl whitemousetl  6 3月  10 08:08 Desktop&#13;
+drwxr-xr-x 表示文件或文件夹的权限控制信息&#13;
+第一个whitemousetl 表示文件、文件夹所属用户&#13;
+第二个whitemousetl  表示文件、文件夹所属用户组&#13;
+&#13;
+权限控制信息总共10个槽位&#13;
+![image](https://github.com/whitemousetl/whitemousetl.github.io/assets/67313669/5928fbd7-4fe2-40f6-a34b-1748ce32ac03)&#13;
+&#13;
+r是读权限&#13;
+w是写权限&#13;
+x是执行权限&#13;
+第1位可以是 - 或 l 或 d ，-表示文件，d表示文件夹，l表示软连接&#13;
+第2、3、4位表示所属用户权限，可以是 - 或 r 或 w 或 x ，-表示无，r是读，w是写，x是执行&#13;
+第5、6、7位表示所属用户组权限，其他与第2、3、4位相同&#13;
+第8、9、10位表示其他用户权限，其他与第2、3、4位相同&#13;
+&#13;
+r对于文件是可以查看文件内容，对于文件夹是可以查看文件夹内容，比如ls命令&#13;
+w对于文件是可以修改此文件内容，对于文件夹是可以在文件夹内创建、删除、改名等操作&#13;
+x对于文件是可以将文件作为程序执行，对于文件夹可以更改目录到此文件夹，即cd操作。</description><guid isPermaLink="true">https://whitemousetl.github.io//post/Linux--cha-kan-quan-xian-kong-zhi.html</guid><pubDate>Sun, 14 Apr 2024 16:31:32 +0000</pubDate></item><item><title>Linux-用户、用户组、getent</title><link>https://whitemousetl.github.io//post/Linux--yong-hu-%E3%80%81-yong-hu-zu-%E3%80%81getent.html</link><description>Linux可以配置多个用户、配置多个用户组、用户可以加入多个用户组中&#13;
 &#13;
 Linux系统中关于权限管控级别有2个级别，分别是：&#13;
 针对用户的权限控制&#13;
