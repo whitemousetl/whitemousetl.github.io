@@ -1,5 +1,17 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>WhiteMouseTL</title><link>https://whitemousetl.github.io/</link><description>知人者智，自知者明。胜人者有力，自胜者强。</description><copyright>WhiteMouseTL</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/67313669?v=4</url><title>avatar</title><link>https://whitemousetl.github.io/</link></image><lastBuildDate>Sun, 14 Apr 2024 07:22:26 +0000</lastBuildDate><managingEditor>WhiteMouseTL</managingEditor><ttl>60</ttl><webMaster>WhiteMouseTL</webMaster><item><title>Linux-cd命令和pwd命令</title><link>https://whitemousetl.github.io//post/Linux-cd-ming-ling-he-pwd-ming-ling.html</link><description>cd命令来自Change Directory，改变目录&#13;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>WhiteMouseTL</title><link>https://whitemousetl.github.io/</link><description>知人者智，自知者明。胜人者有力，自胜者强。</description><copyright>WhiteMouseTL</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/67313669?v=4</url><title>avatar</title><link>https://whitemousetl.github.io/</link></image><lastBuildDate>Sun, 14 Apr 2024 11:45:04 +0000</lastBuildDate><managingEditor>WhiteMouseTL</managingEditor><ttl>60</ttl><webMaster>WhiteMouseTL</webMaster><item><title>Linux-绝对路径、相对路径、特殊路径符</title><link>https://whitemousetl.github.io//post/Linux--jue-dui-lu-jing-%E3%80%81-xiang-dui-lu-jing-%E3%80%81-te-shu-lu-jing-fu.html</link><description>绝对路径：以根目录为起点，描述路径的一种写法，路径描述以/开头&#13;
+相对路径：以当前目录为起点，描述路径的一种写法，路径描述无需以/开头&#13;
+![绝对相对路径](https://github.com/whitemousetl/whitemousetl.github.io/assets/67313669/ac4c40e6-3c22-42ab-a5e7-b5078576cd63)&#13;
+特殊路径符号&#13;
+. 表示当前目录，比如cd ./Desktop表示切换到当前目录下的Desktop目录内，和cd Desktop效果一致&#13;
+![特殊路径符1](https://github.com/whitemousetl/whitemousetl.github.io/assets/67313669/6dcfe28a-eedf-47d4-937c-e7b0b2991c4f)&#13;
+&#13;
+.. 表示上一级目录，比如cd ../ 即可切换到上一级目录，cd ../../ 表示切换到上二级目录&#13;
+![特殊路径符2](https://github.com/whitemousetl/whitemousetl.github.io/assets/67313669/536b937c-37dd-4d05-a700-892ae30fbc34)&#13;
+&#13;
+~ 表示Home目录，比如cd ~ 即可切换到Home目录，cd ~/Desktop 表示切换到Home内的Desktop目录&#13;
+![特殊路径符3](https://github.com/whitemousetl/whitemousetl.github.io/assets/67313669/96f3758a-4952-4fe8-bf48-631420699c21)&#13;
+。</description><guid isPermaLink="true">https://whitemousetl.github.io//post/Linux--jue-dui-lu-jing-%E3%80%81-xiang-dui-lu-jing-%E3%80%81-te-shu-lu-jing-fu.html</guid><pubDate>Sun, 14 Apr 2024 11:44:41 +0000</pubDate></item><item><title>Linux-cd命令和pwd命令</title><link>https://whitemousetl.github.io//post/Linux-cd-ming-ling-he-pwd-ming-ling.html</link><description>cd命令来自Change Directory，改变目录&#13;
 &#13;
 - cd命令无需可选项，只有参数，表示要切换到哪个目录下&#13;
 - cd命令直接执行，不写参数，表示回到用户的Home目录&#13;
