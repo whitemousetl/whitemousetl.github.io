@@ -1,5 +1,23 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>WhiteMouseTL</title><link>https://whitemousetl.github.io/</link><description>知人者智，自知者明。胜人者有力，自胜者强。</description><copyright>WhiteMouseTL</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/67313669?v=4</url><title>avatar</title><link>https://whitemousetl.github.io/</link></image><lastBuildDate>Sun, 14 Apr 2024 16:40:20 +0000</lastBuildDate><managingEditor>WhiteMouseTL</managingEditor><ttl>60</ttl><webMaster>WhiteMouseTL</webMaster><item><title>Linux-IP地址、主机名和域名解析</title><link>https://whitemousetl.github.io//post/Linux-IP-di-zhi-%E3%80%81-zhu-ji-ming-he-yu-ming-jie-xi.html</link><description>每一台联网的电脑都有一个地址，用于和其他计算机进行通讯&#13;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>WhiteMouseTL</title><link>https://whitemousetl.github.io/</link><description>知人者智，自知者明。胜人者有力，自胜者强。</description><copyright>WhiteMouseTL</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/67313669?v=4</url><title>avatar</title><link>https://whitemousetl.github.io/</link></image><lastBuildDate>Sun, 14 Apr 2024 16:42:55 +0000</lastBuildDate><managingEditor>WhiteMouseTL</managingEditor><ttl>60</ttl><webMaster>WhiteMouseTL</webMaster><item><title>Linux-网络传输（下载和网络请求、端口）ping、wget、curl</title><link>https://whitemousetl.github.io//post/Linux--wang-luo-chuan-shu-%EF%BC%88-xia-zai-he-wang-luo-qing-qiu-%E3%80%81-duan-kou-%EF%BC%89ping%E3%80%81wget%E3%80%81curl.html</link><description>通过ping命令，检查指定的网络服务器是否可以联通状态&#13;
+语法：**ping [-c num] ip或主机名**&#13;
+选项[-c num] 检查次数，不使用[-c num] 选项，将无限次数持续检查&#13;
+参数ip或主机名，被检查的服务器的ip地址或主机名地址&#13;
+如：ping -c 3 baidu.com&#13;
+&#13;
+wget是非交互式的文件下载器，可以在命令行内下载网络文件&#13;
+语法：**wget [-b] url**&#13;
+选项[-b] ，后台下载，会将日志写入到当前工作目录的wget-log文件中&#13;
+参数url，下载链接&#13;
+&#13;
+curl可以发送http请求，可用于：下载文件、获取信息等&#13;
+语法：**curl [-O] url**&#13;
+选项[-O] ，用于下载文件，当url是下载链接时，可以使用此选项保存文件&#13;
+参数url，要发起请求的网络地址&#13;
+curl cip.cc 获取主机的公网ip地址&#13;
+curl whitemousetl.github.io 获取该网页的HTML代码&#13;
+&#13;
+端口是设备与外界通讯交流的出入口。</description><guid isPermaLink="true">https://whitemousetl.github.io//post/Linux--wang-luo-chuan-shu-%EF%BC%88-xia-zai-he-wang-luo-qing-qiu-%E3%80%81-duan-kou-%EF%BC%89ping%E3%80%81wget%E3%80%81curl.html</guid><pubDate>Sun, 14 Apr 2024 16:42:31 +0000</pubDate></item><item><title>Linux-IP地址、主机名和域名解析</title><link>https://whitemousetl.github.io//post/Linux-IP-di-zhi-%E3%80%81-zhu-ji-ming-he-yu-ming-jie-xi.html</link><description>每一台联网的电脑都有一个地址，用于和其他计算机进行通讯&#13;
 IP地址主要有两个版本IPv4和IPv6&#13;
 IPv4的地址格式是：a.b.c.d，其中abcd表示0~255的数字，如192.168.88.101就是一个标准的IPv4地址&#13;
 Linux系统可以通过命令ifconfig查看本机IP地址，如无法使用ifconfig命令，&#13;
