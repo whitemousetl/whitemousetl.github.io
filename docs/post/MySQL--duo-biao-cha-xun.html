@@ -9,7 +9,88 @@
         let theme = localStorage.getItem("meek_theme") || "light";
         document.documentElement.setAttribute("data-color-mode", theme);
     </script>
-<meta name="description" content="MySQL-多表查询">
+<meta name="description" content="**1、多表关系**
+```
+一对多（多对一）
+案例：部门 与 员工 的关系
+关系：一个部门对应多个员工，一个员工对应一个部门
+实现：在多的一方建立外键，指向一的一方的主键
+添加外键语法：
+创建表时
+create table 表名(
+    字段1 字段1类型，
+    ... ,
+    [constraint] [外键名称] foreign key(外键字段名) references 主表(主表列名)
+);
+
+alter table 表名 add constraint 外键名称 foreign (外键字段名) references 主表(主表列名)；
+```
+```
+多对多
+案例：学生 与 课程 的关系
+关系：一个学生可以选修多门课程，一门课程也可以供多个学生选择
+实现：建立第三张中间表，中间表至少包含两个外键，分别关联两方主键
+```
+
+```
+一对一
+案例：用户 与 用户详情 的关系
+关系：一对一的关系，多用于单表拆分，将一张基础表字段放在一张表中，其他详情字段放在另一张表中，以提升操作效率（空间换时间）
+实现：在任意一方加入外键，关联另外一方的主键，并且设置外键是唯一的（unique）
+```
+
+**2、多表查询概述**
+```
+概述：指从多张表中查询数据
+笛卡尔积：笛卡尔积是指在数学中，两个集合A和B的所有组合情况（在多表查询时，需要消除无效的笛卡尔积）
+```
+```
+多表查询分类：
+- 连接查询
+内连接：相当于重新A、B交集部分数据。">
+<meta property="og:title" content="MySQL-多表查询">
+<meta property="og:description" content="**1、多表关系**
+```
+一对多（多对一）
+案例：部门 与 员工 的关系
+关系：一个部门对应多个员工，一个员工对应一个部门
+实现：在多的一方建立外键，指向一的一方的主键
+添加外键语法：
+创建表时
+create table 表名(
+    字段1 字段1类型，
+    ... ,
+    [constraint] [外键名称] foreign key(外键字段名) references 主表(主表列名)
+);
+
+alter table 表名 add constraint 外键名称 foreign (外键字段名) references 主表(主表列名)；
+```
+```
+多对多
+案例：学生 与 课程 的关系
+关系：一个学生可以选修多门课程，一门课程也可以供多个学生选择
+实现：建立第三张中间表，中间表至少包含两个外键，分别关联两方主键
+```
+
+```
+一对一
+案例：用户 与 用户详情 的关系
+关系：一对一的关系，多用于单表拆分，将一张基础表字段放在一张表中，其他详情字段放在另一张表中，以提升操作效率（空间换时间）
+实现：在任意一方加入外键，关联另外一方的主键，并且设置外键是唯一的（unique）
+```
+
+**2、多表查询概述**
+```
+概述：指从多张表中查询数据
+笛卡尔积：笛卡尔积是指在数学中，两个集合A和B的所有组合情况（在多表查询时，需要消除无效的笛卡尔积）
+```
+```
+多表查询分类：
+- 连接查询
+内连接：相当于重新A、B交集部分数据。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://whitemousetl.github.io//post/MySQL--duo-biao-cha-xun.html">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/67313669?v=4">
 <title>MySQL-多表查询</title>
 
 

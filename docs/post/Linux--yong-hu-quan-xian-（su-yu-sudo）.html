@@ -9,7 +9,56 @@
         let theme = localStorage.getItem("meek_theme") || "light";
         document.documentElement.setAttribute("data-color-mode", theme);
     </script>
-<meta name="description" content="Linux-用户权限（su与sudo）">
+<meta name="description" content="在Linux系统中，拥有最大权限的账户名是root（超级管理员）
+
+root用户拥有最大的系统操作权限，而普通用户在很多地方的权限是受限的
+普通用户在Home目录内是不受限的，出了Home目录，用户仅有只读和执行权限，无修改权限
+
+通过su命令切换账户，来自英文switch user
+
+**语法：su [-] 用户名**
+[-] 可选，表示是否在切换用户后加载环境变量，建议带上
+参数用户名，表示要切换的用户，用户名也可以省略，省略表示切换到root
+切换用户后，通过exit命令退回上一个用户，也可以使用快捷键Ctor + D
+
+不建议长期使用root用户，避免带来系统损坏
+
+可以使用sudo命令，为普通用户的命令授权，临时以root 身份执行
+**语法：sudo 其他命令**
+在其他命令之前，带上sudo，即可为这一条命令临时赋予root权限
+但并不是所有用户都有权利使用sudo，需要为普通用户配置sudo认证
+
+**为普通用户配置sudo认证**
+切换到root用户，执行visudo，会自动通过vi编辑器打开/etc/sudoers
+在文件最后添加：用户名 ALL=（ALL）  NOPASSWORD：ALL
+最后通过wq保存退出 。">
+<meta property="og:title" content="Linux-用户权限（su与sudo）">
+<meta property="og:description" content="在Linux系统中，拥有最大权限的账户名是root（超级管理员）
+
+root用户拥有最大的系统操作权限，而普通用户在很多地方的权限是受限的
+普通用户在Home目录内是不受限的，出了Home目录，用户仅有只读和执行权限，无修改权限
+
+通过su命令切换账户，来自英文switch user
+
+**语法：su [-] 用户名**
+[-] 可选，表示是否在切换用户后加载环境变量，建议带上
+参数用户名，表示要切换的用户，用户名也可以省略，省略表示切换到root
+切换用户后，通过exit命令退回上一个用户，也可以使用快捷键Ctor + D
+
+不建议长期使用root用户，避免带来系统损坏
+
+可以使用sudo命令，为普通用户的命令授权，临时以root 身份执行
+**语法：sudo 其他命令**
+在其他命令之前，带上sudo，即可为这一条命令临时赋予root权限
+但并不是所有用户都有权利使用sudo，需要为普通用户配置sudo认证
+
+**为普通用户配置sudo认证**
+切换到root用户，执行visudo，会自动通过vi编辑器打开/etc/sudoers
+在文件最后添加：用户名 ALL=（ALL）  NOPASSWORD：ALL
+最后通过wq保存退出 。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://whitemousetl.github.io//post/Linux--yong-hu-quan-xian-%EF%BC%88su-yu-sudo%EF%BC%89.html">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/67313669?v=4">
 <title>Linux-用户权限（su与sudo）</title>
 
 

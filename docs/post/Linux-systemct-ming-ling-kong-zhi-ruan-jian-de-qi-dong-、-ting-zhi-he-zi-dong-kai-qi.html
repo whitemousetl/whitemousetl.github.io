@@ -9,7 +9,36 @@
         let theme = localStorage.getItem("meek_theme") || "light";
         document.documentElement.setAttribute("data-color-mode", theme);
     </script>
-<meta name="description" content="Linux-systemct命令控制软件的启动、停止和自动开启">
+<meta name="description" content="能够被systemctl管理的软件一般成为服务
+语法：**systemctl start | stop | enable | disable | status服务名**
+启动、停止、开机自启，开机不自启、查看服务状态
+需要root权限
+系统内置的服务比较多，比如：
+NetworkManager，主网络服务
+network，副网络服务
+firewalld，防火墙服务
+sshd，ssh服务（FinalShell远程登录Linux就是使用这个服务）
+
+apache服务软件是：httpd
+
+部分软件安装后没有自动集成到systemctl中，我们可以手动添加。">
+<meta property="og:title" content="Linux-systemct命令控制软件的启动、停止和自动开启">
+<meta property="og:description" content="能够被systemctl管理的软件一般成为服务
+语法：**systemctl start | stop | enable | disable | status服务名**
+启动、停止、开机自启，开机不自启、查看服务状态
+需要root权限
+系统内置的服务比较多，比如：
+NetworkManager，主网络服务
+network，副网络服务
+firewalld，防火墙服务
+sshd，ssh服务（FinalShell远程登录Linux就是使用这个服务）
+
+apache服务软件是：httpd
+
+部分软件安装后没有自动集成到systemctl中，我们可以手动添加。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://whitemousetl.github.io//post/Linux-systemct-ming-ling-kong-zhi-ruan-jian-de-qi-dong-%E3%80%81-ting-zhi-he-zi-dong-kai-qi.html">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/67313669?v=4">
 <title>Linux-systemct命令控制软件的启动、停止和自动开启</title>
 
 

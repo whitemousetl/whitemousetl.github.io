@@ -9,7 +9,48 @@
         let theme = localStorage.getItem("meek_theme") || "light";
         document.documentElement.setAttribute("data-color-mode", theme);
     </script>
-<meta name="description" content="Linux-网络传输（下载和网络请求、端口）ping、wget、curl">
+<meta name="description" content="通过ping命令，检查指定的网络服务器是否可以联通状态
+语法：**ping [-c num] ip或主机名**
+选项[-c num] 检查次数，不使用[-c num] 选项，将无限次数持续检查
+参数ip或主机名，被检查的服务器的ip地址或主机名地址
+如：ping -c 3 baidu.com
+
+wget是非交互式的文件下载器，可以在命令行内下载网络文件
+语法：**wget [-b] url**
+选项[-b] ，后台下载，会将日志写入到当前工作目录的wget-log文件中
+参数url，下载链接
+
+curl可以发送http请求，可用于：下载文件、获取信息等
+语法：**curl [-O] url**
+选项[-O] ，用于下载文件，当url是下载链接时，可以使用此选项保存文件
+参数url，要发起请求的网络地址
+curl cip.cc 获取主机的公网ip地址
+curl whitemousetl.github.io 获取该网页的HTML代码
+
+端口是设备与外界通讯交流的出入口。">
+<meta property="og:title" content="Linux-网络传输（下载和网络请求、端口）ping、wget、curl">
+<meta property="og:description" content="通过ping命令，检查指定的网络服务器是否可以联通状态
+语法：**ping [-c num] ip或主机名**
+选项[-c num] 检查次数，不使用[-c num] 选项，将无限次数持续检查
+参数ip或主机名，被检查的服务器的ip地址或主机名地址
+如：ping -c 3 baidu.com
+
+wget是非交互式的文件下载器，可以在命令行内下载网络文件
+语法：**wget [-b] url**
+选项[-b] ，后台下载，会将日志写入到当前工作目录的wget-log文件中
+参数url，下载链接
+
+curl可以发送http请求，可用于：下载文件、获取信息等
+语法：**curl [-O] url**
+选项[-O] ，用于下载文件，当url是下载链接时，可以使用此选项保存文件
+参数url，要发起请求的网络地址
+curl cip.cc 获取主机的公网ip地址
+curl whitemousetl.github.io 获取该网页的HTML代码
+
+端口是设备与外界通讯交流的出入口。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://whitemousetl.github.io//post/Linux--wang-luo-chuan-shu-%EF%BC%88-xia-zai-he-wang-luo-qing-qiu-%E3%80%81-duan-kou-%EF%BC%89ping%E3%80%81wget%E3%80%81curl.html">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/67313669?v=4">
 <title>Linux-网络传输（下载和网络请求、端口）ping、wget、curl</title>
 
 

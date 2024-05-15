@@ -9,7 +9,50 @@
         let theme = localStorage.getItem("meek_theme") || "light";
         document.documentElement.setAttribute("data-color-mode", theme);
     </script>
-<meta name="description" content="Linux-date命令以及校准时间ntp">
+<meta name="description" content="通过date命令可以在命令行中查看系统的时间
+语法：**date [-d] [+格式化字符串]**
+[-d] 按照给定的字符串显示日期，一般用于日期计算
+格式化字符串：通过特定的字符串标记，来控制显示时间的格式
+date默认不带参数是输出当前时间
+[-d] 选项，可以按照给定的字符串显示日期，一般用于日期计算
+date -d "+1 day"  +"%Y-%m-%d"
+
+`%Y 年
+%y 年份后两位数组（00~99）
+%m月份（01~12）
+%d日（01~31）
+%H小时（00~23）
+%M分钟（00~59）
+%S秒（00~60）`
+%s自1970-01-01 00：00：00 UTC到现在的秒数
+
+Lunux系统默认时区并非东8区
+
+UTC 代表协调世界时。">
+<meta property="og:title" content="Linux-date命令以及校准时间ntp">
+<meta property="og:description" content="通过date命令可以在命令行中查看系统的时间
+语法：**date [-d] [+格式化字符串]**
+[-d] 按照给定的字符串显示日期，一般用于日期计算
+格式化字符串：通过特定的字符串标记，来控制显示时间的格式
+date默认不带参数是输出当前时间
+[-d] 选项，可以按照给定的字符串显示日期，一般用于日期计算
+date -d "+1 day"  +"%Y-%m-%d"
+
+`%Y 年
+%y 年份后两位数组（00~99）
+%m月份（01~12）
+%d日（01~31）
+%H小时（00~23）
+%M分钟（00~59）
+%S秒（00~60）`
+%s自1970-01-01 00：00：00 UTC到现在的秒数
+
+Lunux系统默认时区并非东8区
+
+UTC 代表协调世界时。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://whitemousetl.github.io//post/Linux-date-ming-ling-yi-ji-xiao-zhun-shi-jian-ntp.html">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/67313669?v=4">
 <title>Linux-date命令以及校准时间ntp</title>
 
 

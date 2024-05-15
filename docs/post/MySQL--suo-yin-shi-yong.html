@@ -9,7 +9,38 @@
         let theme = localStorage.getItem("meek_theme") || "light";
         document.documentElement.setAttribute("data-color-mode", theme);
     </script>
-<meta name="description" content="MySQL-索引使用">
+<meta name="description" content="**1、验证索引效率**
+```
+为建立索引之前，执行如下SQL语句，查看SQL耗时
+select distinct major from student111 where name = 'John Doe';
+针对字段创建索引
+create index idx_student111_name on student111(name);
+然后执行相同的SQL语句，再次查看SQL的耗时
+select distinct major from student111 where name = 'John Doe';
+```
+
+**2、索引的使用原则**
+```
+最左前缀法则
+如果索引了多列（联合索引），要遵守最左前缀法则。">
+<meta property="og:title" content="MySQL-索引使用">
+<meta property="og:description" content="**1、验证索引效率**
+```
+为建立索引之前，执行如下SQL语句，查看SQL耗时
+select distinct major from student111 where name = 'John Doe';
+针对字段创建索引
+create index idx_student111_name on student111(name);
+然后执行相同的SQL语句，再次查看SQL的耗时
+select distinct major from student111 where name = 'John Doe';
+```
+
+**2、索引的使用原则**
+```
+最左前缀法则
+如果索引了多列（联合索引），要遵守最左前缀法则。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://whitemousetl.github.io//post/MySQL--suo-yin-shi-yong.html">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/67313669?v=4">
 <title>MySQL-索引使用</title>
 
 

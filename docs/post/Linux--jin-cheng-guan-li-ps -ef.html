@@ -9,7 +9,38 @@
         let theme = localStorage.getItem("meek_theme") || "light";
         document.documentElement.setAttribute("data-color-mode", theme);
     </script>
-<meta name="description" content="Linux-进程管理ps -ef">
+<meta name="description" content="程序运行在操作系统中，是被操作系统所管理的
+为管理运行的程序，每一个程序在运行的时候，便被操作系统注册为系统中的一个进程，并为每一个进程都分配一个独有的：进程ID（进程号）
+
+可以通过ps命令查看Linux系统中的进程信息
+语法：**ps [-e -f]**
+选项[-e] 显示出所有的进程信息
+选项[-f] 以完全格式化的的形式展示信息（展示全部信息）
+一般来说，固定用法就是 ps -ef 列出全部进程的全部信息
+
+![image](https://github.com/whitemousetl/whitemousetl.github.io/assets/67313669/03344219-c258-4e47-a396-51b0499ad632)
+
+关闭进程，可以使用kill命令
+语法：kill [-9] 进程ID
+选项[-9] 表示强制关闭进程。">
+<meta property="og:title" content="Linux-进程管理ps -ef">
+<meta property="og:description" content="程序运行在操作系统中，是被操作系统所管理的
+为管理运行的程序，每一个程序在运行的时候，便被操作系统注册为系统中的一个进程，并为每一个进程都分配一个独有的：进程ID（进程号）
+
+可以通过ps命令查看Linux系统中的进程信息
+语法：**ps [-e -f]**
+选项[-e] 显示出所有的进程信息
+选项[-f] 以完全格式化的的形式展示信息（展示全部信息）
+一般来说，固定用法就是 ps -ef 列出全部进程的全部信息
+
+![image](https://github.com/whitemousetl/whitemousetl.github.io/assets/67313669/03344219-c258-4e47-a396-51b0499ad632)
+
+关闭进程，可以使用kill命令
+语法：kill [-9] 进程ID
+选项[-9] 表示强制关闭进程。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://whitemousetl.github.io//post/Linux--jin-cheng-guan-li-ps%20-ef.html">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/67313669?v=4">
 <title>Linux-进程管理ps -ef</title>
 
 

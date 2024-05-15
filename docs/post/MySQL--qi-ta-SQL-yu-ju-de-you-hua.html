@@ -9,7 +9,48 @@
         let theme = localStorage.getItem("meek_theme") || "light";
         document.documentElement.setAttribute("data-color-mode", theme);
     </script>
-<meta name="description" content="MySQL-其他SQL语句的优化">
+<meta name="description" content="**1、插入数据优化**
+```
+insert优化
+批量插入
+1 insert into 表名(字段列表) values(1,'Tom'),(2,'Cat'),(3,'Jerry')...;
+2 不建议批量插入超过1000条，可以开启手动提交事务
+start transaction
+insert into 表名(字段列表) values(1,'Tom'),(2,'Cat'),(3,'Jerry')...;
+insert into 表名(字段列表) values(4,'Tom'),(5,'Cat'),(6,'Jerry')...;
+insert into 表名(字段列表) values(7,'Tom'),(8,'Cat'),(9,'Jerry')...;
+...
+commit;主键顺序插入
+3 顺序插入的性能高于乱序插入
+```
+```
+大批量插入数据
+不建议insert
+使用load指令
+如果一次性要插入大批量数据，使用insert语句插入性能较低，此时可以使用MySQL数据库提供的load指令进行插入。">
+<meta property="og:title" content="MySQL-其他SQL语句的优化">
+<meta property="og:description" content="**1、插入数据优化**
+```
+insert优化
+批量插入
+1 insert into 表名(字段列表) values(1,'Tom'),(2,'Cat'),(3,'Jerry')...;
+2 不建议批量插入超过1000条，可以开启手动提交事务
+start transaction
+insert into 表名(字段列表) values(1,'Tom'),(2,'Cat'),(3,'Jerry')...;
+insert into 表名(字段列表) values(4,'Tom'),(5,'Cat'),(6,'Jerry')...;
+insert into 表名(字段列表) values(7,'Tom'),(8,'Cat'),(9,'Jerry')...;
+...
+commit;主键顺序插入
+3 顺序插入的性能高于乱序插入
+```
+```
+大批量插入数据
+不建议insert
+使用load指令
+如果一次性要插入大批量数据，使用insert语句插入性能较低，此时可以使用MySQL数据库提供的load指令进行插入。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://whitemousetl.github.io//post/MySQL--qi-ta-SQL-yu-ju-de-you-hua.html">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/67313669?v=4">
 <title>MySQL-其他SQL语句的优化</title>
 
 

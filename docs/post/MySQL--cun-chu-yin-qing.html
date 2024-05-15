@@ -9,7 +9,34 @@
         let theme = localStorage.getItem("meek_theme") || "light";
         document.documentElement.setAttribute("data-color-mode", theme);
     </script>
-<meta name="description" content="MySQL-存储引擎">
+<meta name="description" content="1、MySQL体系结构
+![image](https://github.com/whitemousetl/whitemousetl.github.io/assets/67313669/91dba447-1b5a-4679-aae9-2967b5cf5dc5)
+
+- 连接层：接受客户端的连接等
+- 服务层：SQL接口、解析器等绝大部分核心功能
+- 引擎层：index索引是在存储引擎层实现的
+- 存储层：数据最终是存储在磁盘当中的
+
+
+2、存储引擎简介
+
+- 存储引擎就是存储数据、建立索引、更新/查询数据等技术的实现方式。">
+<meta property="og:title" content="MySQL-存储引擎">
+<meta property="og:description" content="1、MySQL体系结构
+![image](https://github.com/whitemousetl/whitemousetl.github.io/assets/67313669/91dba447-1b5a-4679-aae9-2967b5cf5dc5)
+
+- 连接层：接受客户端的连接等
+- 服务层：SQL接口、解析器等绝大部分核心功能
+- 引擎层：index索引是在存储引擎层实现的
+- 存储层：数据最终是存储在磁盘当中的
+
+
+2、存储引擎简介
+
+- 存储引擎就是存储数据、建立索引、更新/查询数据等技术的实现方式。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://whitemousetl.github.io//post/MySQL--cun-chu-yin-qing.html">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/67313669?v=4">
 <title>MySQL-存储引擎</title>
 
 
